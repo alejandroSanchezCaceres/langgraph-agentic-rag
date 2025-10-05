@@ -1600,6 +1600,24 @@ openai = ">=1.104.2,<2.0.0"
 tiktoken = ">=0.7,<1"
 
 [[package]]
+name = "langchain-tavily"
+version = "0.2.11"
+description = "An integration package connecting Tavily and LangChain"
+optional = false
+python-versions = "<4.0,>=3.9"
+groups = ["main"]
+files = [
+    {file = "langchain_tavily-0.2.11-py3-none-any.whl", hash = "sha256:358317c18fbb26500bca665301450e38945f1f4f6a6f4e06406c7674a76c8d5c"},
+    {file = "langchain_tavily-0.2.11.tar.gz", hash = "sha256:ab4f5d0f7fcb276a3905aef2e38c21a334b6cbfc86b405a3238fdc9c6eae1290"},
+]
+
+[package.dependencies]
+aiohttp = ">=3.11.14,<4.0.0"
+langchain = ">=0.3.20,<0.4.0"
+langchain-core = ">=0.3.15,<0.4.0"
+requests = ">=2.32.3,<3.0.0"
+
+[[package]]
 name = "langchain-text-splitters"
 version = "0.3.11"
 description = "LangChain text splitting utilities"
@@ -4894,4 +4912,4 @@ cffi = ["cffi (>=1.17,<2.0) ; platform_python_implementation != \"PyPy\" and pyt
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4.0"
-content-hash = "20f015c229bc8244a3e1cd18d1185ea9ff373979242ce572a72ac8820d589478"
+content-hash = "0a3f6be45c7c324eae5fdc1a9582c9652c128331ab46935a4f1d9b6e82f1ac1b"
