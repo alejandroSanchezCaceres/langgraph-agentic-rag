@@ -16,14 +16,14 @@ except ImportError:
 
 from dotenv import load_dotenv
 
+from logger import log_info
+
 load_dotenv()
+
 
 web_search_tool = TavilySearch(max_results=3)
 
 def web_search(state: GraphState) -> Dict[str, Any]:
-    """
-    Performs a web search for the question
-    """
     """
     Perform a web search for the given question and append the results as a Document to the documents list.
 
@@ -33,12 +33,23 @@ def web_search(state: GraphState) -> Dict[str, Any]:
     Returns:
         Dict[str, Any]: Updated state with the new web search Document appended to documents.
     """
-    print("---PERFORMING WEB SEARCH---")
+    log_info("---REALIZANDO BUSQUEDA WEB---")
+    
     question = state["question"]
-    documents = state["documents"]
+    if "documents" in state: # if the route to web search in first time then give error
+        documents = state["documents"]
+    else:
+        #log_info("No documents found, creating new list with web results for first time")
+        documents = None
+
 
     # Invoke TavilySearch to get web search results for the question
     tavily_results = web_search_tool.invoke({"query": question})
+
+
+    # OJO --> Al hacer esta concatenación se mezclan resultados regresados por la busqueda lo que nos lleva
+    # a qu  el LLM pueda considerar que el unico documenta habla de todo lo concatenado y que las validaciones
+    # de relevancia de documentos puedan fallar
 
     # Join the content from all search results into a single string
     joined_tavily_result = "\n\n".join(
@@ -53,12 +64,12 @@ def web_search(state: GraphState) -> Dict[str, Any]:
 
     # Ensure documents is a list and append the new web search Document
     if documents is not None:
-        print(f"Documents length: {len(documents)}")
-        print("Appending web results to documents")
+        #print(f"Documents length: {len(documents)}")
+        #print("Appending web results to documents")
         documents.append(web_results)
-        print(f"Documents length: {len(documents)}")
+        #print(f"Documents length: {len(documents)}")
     else:
-        print("No documents found, creating new list with web results")
+        #print("No documents found, creating new list with web results")
         documents = [web_results]
 
     # Return the updated state with the new documents list

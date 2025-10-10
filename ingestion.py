@@ -10,6 +10,8 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 
+from logger import log_info
+
 # Load environment variables (e.g., API keys)
 load_dotenv()
 

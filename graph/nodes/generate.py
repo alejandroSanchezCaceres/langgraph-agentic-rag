@@ -3,6 +3,8 @@ from typing import Any, Dict
 from graph.chains.generation import generation_chain
 from graph.state import GraphState
 
+from logger import log_info
+
 def generate(state: GraphState) -> Dict[str, Any]:
     """
     Generate an answer to the given question using the provided documents as context.
@@ -13,7 +15,7 @@ def generate(state: GraphState) -> Dict[str, Any]:
     Returns:
         Dict[str, Any]: Updated state with the generated answer included.
     """
-    print("Generating answer...")
+    log_info("---🤖 GENERANDO RESPUESTA---")
     question = state["question"]
     documents = state["documents"]
 

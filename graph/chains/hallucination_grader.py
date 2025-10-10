@@ -12,7 +12,8 @@ class GradeHallucination(BaseModel):
 structured_llm_grader = llm.with_structured_output(GradeHallucination)
 
 system = """You are a grader assessing whether an LLM generation is grounded in / supported by a set of retrieved facts. \n 
-     Give a binary score 'yes' or 'no'. 'Yes' means that the answer is grounded in / supported by the set of facts."""
+     Give a binary score 'yes' or 'no'. 'Yes' means that the answer is grounded in / supported by the set of facts. \n
+     If the facts are from web_search, verify that facts contains information associated with the entities in the question."""
 
 hallucination_grader_prompt = ChatPromptTemplate.from_messages(
     [
