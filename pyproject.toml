@@ -1,7 +1,7 @@
 [project]
 name = "langgraph-agentic-rag"
 version = "0.1.0"
-description = ""
+description = "Sistema de RAG con agentes que combina recuperación vectorial y búsqueda web para respuestas precisas y fundamentadas"
 authors = [
     {name = "Gualberto Alejandro Sanchez Caceres",email = "sanchezga@globalhitss.com"}
 ]
