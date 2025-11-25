@@ -12,7 +12,7 @@ if __name__ == "__main__":
     log_header("🤖 Sistema de Agentes IA que contesta preguntas \n fundamentadas en fuentes de información internas o externas...")
 
     # 1 - This question cause the stage of Happy Path and inhouse docs
-    #result = app.invoke(input={"question": "What is agent memory?"})
+    result = app.invoke(input={"question": "What is agent memory?"})
 
     # 1 - This question cause the stage of Happy Path and inhouse docs with spanish translation
     #result = app.invoke(input={"question": "Qué me puedes decir de los agentes de inteligencia artificial?"})
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     #result = app.invoke(input={"question": "gdsfgsdfgwertserttg sdfgsdfgsdfg?"})
 
     # 5 - This question retrive today information
-    result = app.invoke(input={"question": "Cómo termino el IPC de bolsa mexicana de valores el día de hoy?"})
+    #result = app.invoke(input={"question": "Cómo termino el IPC de bolsa mexicana de valores el día de hoy?"})
 
     print("\n")
     log_success(f"---🤖 RESPUESTA: {result['generation']}\n")

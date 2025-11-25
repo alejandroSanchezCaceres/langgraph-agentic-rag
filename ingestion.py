@@ -36,9 +36,16 @@ text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
 # Split documents into smaller chunks
 doc_splits = text_splitter.split_documents(docs_list)
 
+#vectorstore = Chroma.from_documents(
+#    documents=doc_splits,
+#    collection_name="rag-chroma",
+#    embedding=OpenAIEmbeddings(),
+#    persist_directory="./.chroma",
+#)
+
 # Prepare a retriever using a persistent Chroma vector store
 retriever_vector = Chroma(
     collection_name="rag-chroma",
     embedding_function=OpenAIEmbeddings(),
-    persist_directory="C:\\pythonProyectsAI\\langgraph-agentic-rag"
+    persist_directory="./.chroma",
 ).as_retriever()
