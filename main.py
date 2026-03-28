@@ -11,7 +11,7 @@ load_dotenv()
 if __name__ == "__main__":
     log_header("🤖 Sistema de Agentes IA que contesta preguntas \n fundamentadas en fuentes de información internas o externas...")
 
-    # 1 - This question cause the stage of Happy Path and inhouse docs
+    # 0 - This question cause the stage of Happy Path and inhouse docs
     result = app.invoke(input={"question": "What is agent memory?"})
 
     # 1 - This question cause the stage of Happy Path and inhouse docs with spanish translation
